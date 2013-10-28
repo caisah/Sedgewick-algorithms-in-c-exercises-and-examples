@@ -3,10 +3,10 @@ CC = gcc
 # flags
 CFLAGS = -Wall -g
 # general dependencies
-DEPS = Point.h
+DEPS = matrix.h
 # object files
 OBJ = main.o \
-      point_dt_implementation.o
+      functions.o
 # main file name
 TARGET = main
 # out file name
@@ -24,4 +24,4 @@ $(OBJ): $(DEPS)
 
 .PHONY : clean
 clean:
-	rm -rf $(wildcard *.o) $(wildcard *~)
+	rm -rf $(wildcard *.o) $(wildcard *~) out
