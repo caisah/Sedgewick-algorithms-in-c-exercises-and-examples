@@ -3,10 +3,10 @@
 #include "item.h"
 #include "stack.h"
 
-int main(int argc, char *argv[]) 
+int main(void) 
 {
-  char *a = argv[1];
-  int i, n = strlen(a);
+  char *a = "10 2 - 8 2 / +";
+  int i, n = strlen(a), second;
 
   STACKinit(n);
   for (i = 0; i < n; i++)
@@ -15,6 +15,16 @@ int main(int argc, char *argv[])
 	STACKpush(STACKpop() + STACKpop());
       if (a[i] == '*')
 	STACKpush(STACKpop() * STACKpop());
+      if (a[i] == '-')
+	{
+	  second = STACKpop();
+	  STACKpush(STACKpop() - second);
+	}      
+      if (a[i] == '/')
+	{
+	  second = STACKpop();
+	  STACKpush(STACKpop() / second);
+	}
       if ((a[i] >= '0') && (a[i] <= '9'))
 	STACKpush(0);
       while ((a[i] >= '0') && (a[i] <= '9'))

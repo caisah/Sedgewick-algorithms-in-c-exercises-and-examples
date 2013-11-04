@@ -3,9 +3,9 @@
 #include "item.h"
 #include "stack.h"
 
-int main(int argc, char *argv[]) 
+int main(void) 
 {
-  char *a = argv[1];
+  char *a = "5 9 * 8 7 4 6 + * 2 1 3 * + * + *";
   int i, n = strlen(a);
 
   STACKinit(n);
@@ -20,6 +20,6 @@ int main(int argc, char *argv[])
       while ((a[i] >= '0') && (a[i] <= '9'))
 	STACKpush(10 * STACKpop() + (a[i++] - '0'));
     }
-  printf("%d \n", STACKpop());
+    printf("%d \n", STACKpop());
   return 0;
 }
