@@ -12,6 +12,7 @@ int main(void)
   STACKinit(n);
   STACKpush(1);
   STACKpush(2);
+  printf("Count: %d\n", STACKcount());
   printf("%d, %d\n", STACKpop(), STACKpop());
   printf("Stack empty? %d\n", STACKempty());
   return 0;

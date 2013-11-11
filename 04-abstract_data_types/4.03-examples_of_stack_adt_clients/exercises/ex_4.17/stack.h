@@ -1,6 +1,23 @@
-#include "item.h"
+typedef struct iSTACKnode *i_link;
+struct iSTACKnode 
+{
+  char item;
+  i_link next;
+};
 
-void STACKinit(int);
-int STACKempty(void);
-void STACKpush(Item);
-Item STACKpop(void);
+typedef struct cSTACKnode *c_link;
+struct cSTACKnode 
+{
+  int item;
+  c_link next;
+};
+
+void cSTACKinit();
+int cSTACKempty(void);
+void cSTACKpush(char);
+char cSTACKpop(void);
+
+void iSTACKinit();
+int iSTACKempty(void);
+void iSTACKpush(int);
+int iSTACKpop(void);

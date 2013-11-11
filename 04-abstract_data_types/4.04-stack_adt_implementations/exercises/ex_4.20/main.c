@@ -11,8 +11,7 @@ int main(void)
   scanf("%d", &n);
   STACKinit(n);
   STACKpush(1);
-  STACKpush(2);
-  printf("%d, %d\n", STACKpop(), STACKpop());
-  printf("Stack empty? %d\n", STACKempty());
+  STACKpop();
+  STACKpop();
   return 0;
 }

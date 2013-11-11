@@ -1,25 +1,75 @@
-#include <stdlib.h> 
-#include <stdio.h> 
+#include <stdlib.h>
 #include "stack.h"
-#include "item.h"
 
-static Item *s;
-static int N;
+static c_link c_head;
 
-void STACKinit(int maxn)
+c_link c_new(char item, c_link next)
 {
-  s = malloc(maxn * sizeof(Item));
-  N = 0;
+  c_link x = malloc(sizeof *x);
+
+  x->item = item;
+  x->next = next;
+  return x;
 }
-int STACKempty(void)
+
+void cSTACKinit(void)
 {
-  return N == 0;
+  c_head = NULL;
 }
-void STACKpush(Item item)
+
+int cSTACKempty(void)
 {
-  s[++N] = item;
+  return c_head == NULL;
 }
-Item STACKpop(void)
+
+void cSTACKpush(char item)
 {
-  return s[N--];
+  c_head = c_new(item, c_head);
+}
+
+char cSTACKpop()
+{
+  char item = c_head->item;
+  c_link t = c_head->next;
+
+  free(c_head);
+  c_head = t;
+  return item;
+}
+
+
+static i_link i_head;
+
+i_link i_new(int item, i_link next)
+{
+  i_link x = malloc(sizeof *x);
+
+  x->item = item;
+  x->next = next;
+  return x;
+}
+
+void iSTACKinit(void)
+{
+  i_head = NULL;
+}
+
+int iSTACKempty(void)
+{
+  return i_head == NULL;
+}
+
+void iSTACKpush(int item)
+{
+  i_head = i_new(item, i_head);
+}
+
+int iSTACKpop()
+{
+  char item = i_head->item;
+  i_link t = i_head->next;
+
+  free(i_head);
+  i_head = t;
+  return item;
 }

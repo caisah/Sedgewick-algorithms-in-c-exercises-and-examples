@@ -3,7 +3,7 @@ CC = gcc
 # flags
 CFLAGS = -Wall -g
 # general dependencies
-DEPS = stack.h
+DEPS = stack.h item.h
 # object files
 OBJ = main.o \
       stack_functions.o

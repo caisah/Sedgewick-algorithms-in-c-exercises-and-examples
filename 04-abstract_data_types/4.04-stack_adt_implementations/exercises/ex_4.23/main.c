@@ -6,13 +6,15 @@
 int main(void) 
 {
   int n;
-  
-  printf("Enter the size of stack: ");
+
+  printf("Enter the seize of stack: ");
   scanf("%d", &n);
   STACKinit(n);
   STACKpush(1);
-  STACKpush(2);
-  printf("%d, %d\n", STACKpop(), STACKpop());
-  printf("Stack empty? %d\n", STACKempty());
+  STACKpush(11);
+  STACKpush(111);
+  printf("%d\n", STACKpop());
+  printf("%d\n", STACKpop());
+  printf("%d\n", STACKpop());
   return 0;
 }
