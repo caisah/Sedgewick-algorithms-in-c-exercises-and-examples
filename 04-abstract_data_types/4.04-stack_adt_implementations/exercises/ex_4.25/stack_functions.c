@@ -2,6 +2,30 @@
 #include "stack.h"
 #include "item.h"
 
+// int stack
+static int *r;
+static int iN;
+
+void iSTACKinit(int maxn)
+{
+  r = malloc(maxn * sizeof(int));
+  iN = 0;
+}
+int iSTACKempty(void)
+{
+  return iN == 0;
+}
+void iSTACKpush(int item)
+{
+  r[++iN] = item;
+}
+int iSTACKpop(void)
+{
+  return r[iN--];
+}
+
+
+// char double stack
 static Item *s;
 static int N;
 static int M;
