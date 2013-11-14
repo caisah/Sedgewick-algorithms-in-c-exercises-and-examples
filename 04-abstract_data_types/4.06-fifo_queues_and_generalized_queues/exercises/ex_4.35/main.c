@@ -5,10 +5,10 @@
 
 int main(void) 
 {
-  char *a = "E + a s * * Y *";  // E s a Y
+  char *a = "E * a s * + Y *";  // E s a Y
   /* char *a = "E a * s Y + * *";  // a Y s E */
   /* char *a = "E a * s * Y + *";  // a s Y e */
-  int n, i = 0, j;
+  int n, i = 0;
   
   n = strlen(a);
   QUEUEinit(n);

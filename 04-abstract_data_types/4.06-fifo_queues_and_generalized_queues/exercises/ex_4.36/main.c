@@ -1,50 +1,67 @@
 #include <stdio.h>
+#include <stdlib.h> 
 #include <string.h> 
 #include <ctype.h>
 #include "queue.h"
 
-int skip_spaces(char *, int);
-
 int main(void) 
 {
+  char *expr = "E a s Y", *result = "a s Y e";
+  char first, last, *s;
+  int n, i = 0, j = 0, k = 0, m;
   
-  char *res = "E + a s * * Y *";
-  char *first = "E a s Y";
-  char *second = "E s a Y";
-  int n;
-  /* char *a = "E a * s Y + * *";  // a Y s E */
-  /* char *a = "E a * s * Y + *";  // a s Y e */
-  
-  n = strlen(a);
+  n = strlen(expr) + 1;
+  s = malloc(n * sizeof(char));
   QUEUEinit(2 * n);
+  // loop until the end of expr
   while(i < n)
     {
-      i = skip_spaces(first, i);
-      j = skip_spaces(second, j);
-
-      if (!QUEUEempty())
+      // add letters to queue and result
+      if (islower(expr[i]))
 	{
-	  verify_queue(second[j]);
-	  if (first[i] == second[j])
-	    {
-	      printf("%c * ", first[i]);
-	      j++;
-	    }
-	  else
-	    {
-	      if (islower(first[i]))
-		QUEUEput_end(first[i]);
-	      if (isupper(first[i]))
-		QUEUEput_begin(first[i]);
-	    }
-	  i++;
+	  QUEUEput_end(expr[i]);
+	  s[k++] = expr[i];
 	}
+      if (isupper(expr[i]))
+	{
+	  QUEUEput_begin(expr[i]);
+	  s[k++] = expr[i];
+	}
+      // check for sign needed
+      if ( !QUEUEempty())
+	{
+	if ( (last = QUEUEget_end()) == result[j])
+	  {
+	    s[k++] = '*';
+	    j += 2;
+	  }
+	else
+	  QUEUEput_end(last);
+	}
+      
+      if ( !QUEUEempty())
+	{
+	if ( (first = QUEUEget_begin()) == result[j])
+	  {
+	    s[k++] = '+';
+	    j += 2;
+	  }
+	else
+	  QUEUEput_begin(first);
+	}
+      i += 2;
     }
-}
-/* skip_spaces: returns next nonspace position */
-int skip_spaces(char *expr, int i)
-{
-  while(expr[i] == ' ')
-    i++;
-  return i;
+  // add the last signs
+  while (!QUEUEempty())
+    {
+      QUEUEget_begin();
+      s[k++] = '*';
+    }
+  s[k] = '\0';
+  m = k;
+  // print result
+  for (i = 0; i < m; i++)
+    printf("%c ", s[i]);
+  printf("\n");
+  return 0;
 }
