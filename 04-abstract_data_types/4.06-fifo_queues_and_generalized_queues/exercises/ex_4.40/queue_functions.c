@@ -22,12 +22,12 @@ link new(Item item, link next)
 
 void QUEUEinit(int maxn)
 {
-  head = NULL;
+  head = ( tail = NULL);
 }
 
 int QUEUEempty(void)
 {
-  return head == NULL;
+  return head == tail;
 }
 
 void QUEUEput(Item item)
@@ -37,7 +37,7 @@ void QUEUEput(Item item)
       head = (tail = new(item, head));
       return;
     }
-  tail->next = new(item, tail->next);
+  tail->next = new(item, head);
   tail = tail->next;
 }
 

@@ -3,14 +3,14 @@
 
 int main(void) 
 {
-  int n;
+  int n = 3;
 
-  printf("Enter the length of the queue: ");
-  scanf("%d", &n);
   QUEUEinit(n);
   QUEUEput(1);
   QUEUEput(2);
-  printf("%d ", QUEUEget());
+  QUEUEput(3);
+  printf("%d\n", QUEUEget());
+  printf("%d\n", QUEUEget());
   printf("%d\n", QUEUEget());
   return 0;
 }
