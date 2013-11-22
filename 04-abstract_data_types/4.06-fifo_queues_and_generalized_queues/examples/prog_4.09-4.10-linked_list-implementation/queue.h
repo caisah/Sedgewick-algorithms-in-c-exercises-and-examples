@@ -3,4 +3,4 @@
 void QUEUEinit(int);
 int QUEUEempty(void);
 void QUEUEput(Item);
-Item QUEUEget();
+Item QUEUEget(void);
