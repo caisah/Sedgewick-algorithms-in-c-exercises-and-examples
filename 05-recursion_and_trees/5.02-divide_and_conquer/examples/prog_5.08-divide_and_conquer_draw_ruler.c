@@ -26,7 +26,7 @@ rule(int l, int r, int h)
 
 int main(void) 
 {
-  int l = 0, r = N, h = (l+r) /2, i, j;
+  int l = 0, r = N, h = (l+r) /2-1, i, j;
 
   for (i = 0; i < N; i++)
     a[i] = 0;
@@ -38,6 +38,5 @@ int main(void)
       printf("\n");
       printf("\n");
     }
-  printf("-\n");
   return 0;
 }
