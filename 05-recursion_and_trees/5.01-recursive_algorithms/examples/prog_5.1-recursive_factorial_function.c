@@ -1,4 +1,4 @@
-log#include <stdio.h> 
+#include <stdio.h> 
 
 #define N 5
 
