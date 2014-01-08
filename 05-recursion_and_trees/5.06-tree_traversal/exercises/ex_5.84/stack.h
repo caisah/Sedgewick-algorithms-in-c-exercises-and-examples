@@ -7,5 +7,6 @@ void STACKinit(int);
 int STACKempty(void);
 void STACKpush(link);
 link STACKpop(void);
+link STACKpeek(void);
 
 #endif

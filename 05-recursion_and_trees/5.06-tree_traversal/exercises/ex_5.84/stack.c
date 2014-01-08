@@ -22,3 +22,7 @@ link STACKpop(void)
 {
   return s[N--];
 }
+link STACKpeek()
+{
+  return s[N];
+}  

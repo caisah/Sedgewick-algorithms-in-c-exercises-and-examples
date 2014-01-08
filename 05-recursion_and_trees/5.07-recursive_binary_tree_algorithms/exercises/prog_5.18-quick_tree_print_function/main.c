@@ -2,9 +2,6 @@
 #include <stdio.h> 
 #include "item.h"
 #include "list.h"
-#include "stack.h"
-
-#define MAX 8
 
 /*
                 E
@@ -19,36 +16,25 @@
 
 */
 
-void traverse(link h, void (*visit)(link))
+void printnode(char c, int h)
 {
-  link last_visited = NULL, peek_node;
-  
-  STACKinit(MAX);
+  int i;
 
-  while (!STACKempty() || h != NULL)
+  for (i = 0; i < h; i++)
+    printf("   ");
+  printf("%c\n", c);
+}
+
+void show(link x, int h)
+{
+  if (x == NULL)
     {
-      if (h != NULL)
-	{
-	  STACKpush(h);
-	  h = h->l;
-	}
-      else
-	{
-	  peek_node = STACKpeek();
-	  if (peek_node->r != NULL && last_visited != peek_node->r)
-	    h = peek_node->r;
-	  else
-	    {
-	      (*visit)(STACKpop());
-	      last_visited = peek_node;
-	    }
-	}
+      printnode('*', h);
+      return;
     }
-}  
-
-void print_node(link node)
-{
-  print_item(node->item);
+  show(x->r, h+1);
+  printnode(x->item, h);
+  show(x->l, h+1);
 }
 
 int main(void) 
@@ -68,7 +54,6 @@ int main(void)
   right = right->l;
   add_right_leaf(right, 'G');
 
-  traverse(root, print_node);
-  printf("\n");
+  show(root, 1);
   return 0;
 }

@@ -2,9 +2,6 @@
 #include <stdio.h> 
 #include "item.h"
 #include "list.h"
-#include "stack.h"
-
-#define MAX 8
 
 /*
                 E
@@ -19,36 +16,26 @@
 
 */
 
-void traverse(link h, void (*visit)(link))
-{
-  link last_visited = NULL, peek_node;
-  
-  STACKinit(MAX);
 
-  while (!STACKempty() || h != NULL)
-    {
-      if (h != NULL)
-	{
-	  STACKpush(h);
-	  h = h->l;
-	}
-      else
-	{
-	  peek_node = STACKpeek();
-	  if (peek_node->r != NULL && last_visited != peek_node->r)
-	    h = peek_node->r;
-	  else
-	    {
-	      (*visit)(STACKpop());
-	      last_visited = peek_node;
-	    }
-	}
-    }
-}  
-
-void print_node(link node)
+int count(link h)
 {
-  print_item(node->item);
+  if (h == NULL)
+    return 0;
+  return count(h->l) + count(h->r) + 1;
+}
+
+int height(link h)
+{
+  int u, v;
+
+  if (h == NULL)
+    return -1;
+  u = height(h->l);
+  v = height(h->r);
+  if (u > v)
+    return u + 1;
+  else
+    return v + 1;
 }
 
 int main(void) 
@@ -68,7 +55,7 @@ int main(void)
   right = right->l;
   add_right_leaf(right, 'G');
 
-  traverse(root, print_node);
-  printf("\n");
+  printf("Number of nodes: %d\n", count(root));
+  printf("Height of the tree: %d\n", height(root));
   return 0;
 }
