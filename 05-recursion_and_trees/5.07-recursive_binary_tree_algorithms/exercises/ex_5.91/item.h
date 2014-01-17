@@ -1,7 +1,7 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-typedef char Item;
+typedef int Item;
 
 void print_item(Item);
 int eq(Item, Item);

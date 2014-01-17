@@ -3,7 +3,7 @@
 
 void print_item(Item x)
 {
-  printf("%c ", x);
+  printf("%d ", x);
 }
 
 int eq(Item x, Item y)
