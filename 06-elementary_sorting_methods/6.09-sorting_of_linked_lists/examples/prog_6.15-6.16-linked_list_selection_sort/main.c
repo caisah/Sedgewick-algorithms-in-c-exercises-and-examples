@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[]) 
 {
-  link h, s, max;
+  link h, s;
   
   if (argc < 2)
     printf("N arg missing: \n");
