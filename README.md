@@ -15,10 +15,12 @@ All the programs were compiled with the `-std=c99` flag and should work out of t
 
 ###Missing & Other 
 
-Some of the answers for particular exercises are missing. 
-I have omitted exercises which require only a explenatory type of solution or for which I found no value in solving.
+Some of the answers for particular exercises are missing.
+I have omitted exercises which require only a explanatory type of solution or for which I found no value in solving.
 
-Some of the examples are not 100% according to the book mainly because I tried to make them work in a practical way, and to make it have more than aneducational purpose.
+Most of the latest chapters have no exercises.
+
+Some of the examples are not 100% according to the book mainly because I tried to make them work in a practical way, and to make it have more than an educational purpose.
 Therefore some examples contain code I have added in order to compile and work with some input.
 
 
