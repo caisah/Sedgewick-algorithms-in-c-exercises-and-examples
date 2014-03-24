@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define st "blabla"
+#define st "b"
 
 int hashU(char *v, int M)
 {
@@ -13,7 +13,7 @@ int hashU(char *v, int M)
 
 int main(void) 
 {
-  int M = 100;
+  int M = 5;
   
   printf("Hash for \'%s\' in %d range is: %d\n", st, M, hashU(st, M));
   return 0;
