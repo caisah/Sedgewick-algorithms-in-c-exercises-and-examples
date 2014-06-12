@@ -1,4 +1,4 @@
-Sedgewick-algorithms-in-c-exercises-and-examples
+Algorithms in C
 ================================================
 My takes of **Algorithms in C - Fundamentals, Data Structures, Sorting, Searching (3rd Edition)** book by **Robert Sedgewick**.
 It contains code for both the **examples** and the **exercises**.
