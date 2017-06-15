@@ -7,6 +7,6 @@ struct node
 
 link *new_node(int);
 link *new_list(void);
-link *add_next(int, link*);
+link *add_last(int, link*);
 link *concat_lists(link*, link*);
 void print_list(link*);
