@@ -6,21 +6,22 @@
 
 char *str_cat(char *s1, char *s2)
 {
-  char *res;
-  int i, j;
+  char *res, *head;
+  int i = 0, j;
 
   res = malloc((strlen(s1) + strlen(s2) + 1) * sizeof(char));
+  head = res;
   if (res != NULL)
     {
       while (s1[i] != '\0')
-	res[i] = s1[i++];
+	*res++ = s1[i++];
       j = i;
       i = 0;
       while(s2[i] != '\0')
-	res[j++] = s2[i++];
+	*res++ = s2[i++];
       res[j] = '\0';
     }
-  return res;
+  return head;
 }
 
 char *str_cpy(char *s)
