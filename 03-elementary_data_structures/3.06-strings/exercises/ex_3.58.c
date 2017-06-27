@@ -31,7 +31,7 @@ char *str_cpy(char *s)
   res = malloc((strlen(s) + 1) * sizeof(char));
   head = res;
   if (res != NULL)
-    while (*res++ = *s++)
+    while (*res++ = *s++);
   return head;
 }
 
